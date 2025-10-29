@@ -1058,8 +1058,8 @@ npm run dev
 - ✅ UI สวยงาม มี animations
 
 ## บันทึกรูปผลการทดลอง
-```bash
-# บันทึกรูปผลการทดลองที่นี่
+bash
+![alt text](image.png)
 ``` 
 
 ### ขั้นตอนที่ 8.4: Test Build
