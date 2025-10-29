@@ -1172,8 +1172,8 @@ git push origin main
 
 
 ## บันทึกรูปผลการ Deploy
-```bash
-# บันทึกรูปผลการ Deploy ที่นี่
+
+![alt text](image-1.png)
 ```
 
 ### ขั้นตอนที่ 10.3: หา URL ของ Website
@@ -1203,8 +1203,8 @@ https://your-username.github.io/todo-frontend/
 
 ---
 ## บันทึกรูปผลการรันหน้า Front-end
-```bash
-# บันทึกรูปผลการรันหน้า Front-end ที่นี่
+```
+![alt text](image-2.png)
 ```
 
 ## ส่วนที่ 11: Troubleshooting
@@ -1358,41 +1358,41 @@ todo-frontend/
 
 ### Pre-deployment Checklist
 
-- [ ] Node.js 18+ ติดตั้งแล้ว
-- [ ] Git ติดตั้งแล้ว
-- [ ] GitHub Account พร้อม
-- [ ] Backend API ทำงานปกติ
-- [ ] CORS ตั้งค่าถูกต้อง
+- [ ✓] Node.js 18+ ติดตั้งแล้ว
+- [ ✓ ] Git ติดตั้งแล้ว
+- [ ✓ ] GitHub Account พร้อม
+- [ ✓ ] Backend API ทำงานปกติ
+- [ ✓ ] CORS ตั้งค่าถูกต้อง
 
 ### Development Checklist
 
-- [ ] สร้างโปรเจกต์ Next.js
-- [ ] ติดตั้ง dependencies ครบ
-- [ ] สร้าง API layer (`src/lib/api.js`)
-- [ ] สร้าง components ทั้ง 3 ตัว
-- [ ] สร้าง main page
-- [ ] แก้ไข styling
-- [ ] ทดสอบ local ผ่าน
+- [ ✓ ] สร้างโปรเจกต์ Next.js
+- [ ✓ ] ติดตั้ง dependencies ครบ
+- [ ✓ ] สร้าง API layer (`src/lib/api.js`)
+- [ ✓ ] สร้าง components ทั้ง 3 ตัว
+- [ ✓ ] สร้าง main page
+- [ ✓ ] แก้ไข styling
+- [ ✓ ] ทดสอบ local ผ่าน
 
 ### Deployment Checklist
 
-- [ ] สร้าง GitHub repository
-- [ ] สร้าง workflow file
-- [ ] ตั้งค่า GitHub Pages
-- [ ] ตั้งค่า workflow permissions
-- [ ] อัพเดท API URL ใน workflow
-- [ ] Push code ไป GitHub
-- [ ] Workflow รันสำเร็จ
-- [ ] Website เข้าถึงได้
-- [ ] ทดสอบ features ครบ
+- [ ✓ ] สร้าง GitHub repository
+- [ ✓ ] สร้าง workflow file
+- [ ✓ ] ตั้งค่า GitHub Pages
+- [ ✓ ] ตั้งค่า workflow permissions
+- [ ✓ ] อัพเดท API URL ใน workflow
+- [ ✓ ] Push code ไป GitHub
+- [ ✓ ] Workflow รันสำเร็จ
+- [ ✓ ] Website เข้าถึงได้
+- [ ✓ ] ทดสอบ features ครบ
 
 ### Testing Checklist
 
-- [ ] เปิดหน้าเว็บได้
-- [ ] API Status เป็น "Connected"
-- [ ] เพิ่ม Todo ได้
-- [ ] ลบ Todo ได้
-- [ ] Statistics แสดงถูกต้อง
+- [ ✓ ] เปิดหน้าเว็บได้
+- [ ✓ ] API Status เป็น "Connected"
+- [ ✓ ] เพิ่ม Todo ได้
+- [ ✓ ] ลบ Todo ได้
+- [ ✓ ] Statistics แสดงถูกต้อง
 
 
 ---
@@ -1400,7 +1400,48 @@ todo-frontend/
 ## ส่วนที่ 15: คำถามท้ายการทดลอง
 
 1. **CI/CD Pipeline**: อธิบายขั้นตอนใน GitHub Actions workflow
+CI/CD Pipeline คือกระบวนการอัตโนมัติที่ใช้ในการตรวจสอบ (Test) สร้าง (Build) และเผยแพร่ (Deploy) แอปพลิเคชันโดยไม่ต้องทำด้วยตนเอง โดยใน GitHub Actions จะมี Workflow ที่ทำงานทุกครั้งเมื่อมีการ Push โค้ดขึ้นไปยังสาขา main ซึ่งประกอบด้วยขั้นตอนสำคัญดังนี้
+
+Checkout code – ดึงซอร์สโค้ดจาก GitHub Repository มายังเครื่อง Virtual Machine ของ GitHub Actions
+
+Setup Node.js – ติดตั้ง Node.js เวอร์ชัน 18 เพื่อให้สามารถ Build โปรเจกต์ Next.js ได้
+
+Install dependencies – รันคำสั่ง npm ci เพื่อติดตั้งแพ็กเกจทั้งหมดจาก package.json
+
+Build Next.js app – รันคำสั่ง npm run build เพื่อสร้างไฟล์ Static (เก็บในโฟลเดอร์ out/)
+
+Upload artifact – อัปโหลดผลลัพธ์การ Build เพื่อเตรียมใช้ในขั้นตอนถัดไป
+
+Deploy to GitHub Pages – ใช้ Action actions/deploy-pages@v4 เพื่อเผยแพร่เว็บไซต์ไปยัง GitHub Pages อัตโนมัติ
+
+สรุป:
+CI/CD Pipeline ช่วยให้ทุกครั้งที่ Push โค้ด ระบบจะ Build และ Deploy เว็บไซต์โดยอัตโนมัติ ทำให้การพัฒนาและอัปเดตเว็บไซต์มีความสะดวก รวดเร็ว และลดความผิดพลาดจากการทำด้วยมือ
 2. **CORS**: ทำไม Backend ต้อง enable CORS สำหรับ Frontend
+CORS (Cross-Origin Resource Sharing) เป็นกลไกความปลอดภัยของเว็บเบราว์เซอร์ ที่ใช้ควบคุมการเรียกข้อมูลจาก “ต่างโดเมน” เพื่อป้องกันการโจมตีแบบ Cross-Site Request
+ในโปรเจกต์นี้ Frontend (Next.js) ถูก Deploy บน
+https://natthapong073.github.io/todo-frontend/
+แต่ Backend (Flask API) อยู่ที่
+https://flask-todo-cicd-production-df63.up.railway.app/api
+
+โดเมนทั้งสองไม่เหมือนกัน จึงต้อง “เปิด CORS” ในฝั่ง Backend เพื่ออนุญาตให้ Frontend เรียกใช้งาน API ได้ โดยใน Flask จะกำหนดได้ดังนี้:
+
+from flask_cors import CORS
+
+CORS(app, resources={
+    r"/api/*": {
+        "origins": [
+            "http://localhost:3000",
+            "https://natthapong073.github.io",
+            "https://*.github.io"
+        ],
+        "methods": ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+        "allow_headers": ["Content-Type"]
+    }
+})
+
+
+สรุป:
+Backend ต้อง Enable CORS เพราะ Frontend และ Backend อยู่คนละโดเมน หากไม่เปิด CORS เบราว์เซอร์จะบล็อกการเรียก API ทำให้เว็บไม่สามารถแสดงหรือจัดการข้อมูลได้
 
 
 ## ส่วนที่ 16: แหล่งข้อมูลเพิ่มเติม
