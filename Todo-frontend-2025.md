@@ -1471,7 +1471,7 @@ Backend ต้อง Enable CORS เพราะ Frontend และ Backend อ�
 
 ## สรุป
 **URL ของนักศึกษาคือ**:
-- Frontend: `https://your-username.github.io/todo-frontend/`
+- Frontend: (https://natthapong073.github.io/todo-frontend/)
 - Backend: `https://your-backend.onrender.com`
 
 ---
