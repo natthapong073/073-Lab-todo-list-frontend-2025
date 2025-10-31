@@ -1472,7 +1472,8 @@ Backend ต้อง Enable CORS เพราะ Frontend และ Backend อ�
 ## สรุป
 **URL ของนักศึกษาคือ**:
 - Frontend: (https://natthapong073.github.io/todo-frontend/)
-- Backend: `https://your-backend.onrender.com`
+- Backend: (https://github.com/natthapong073/flask-todo-cicd/actions/workflows/ci-cd-deploy.yml/badge.svg)
+
 
 ---
 
